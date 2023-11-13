@@ -1,0 +1,145 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Profile</div>
+  </div>
+
+  <div class="mb-4 text-justify max-w-[900px]">-</div>
+
+  <div class="mb-4">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-6">
+    <TimeLineElement
+      title="Master's degree - Computer Science"
+      tags={["C/C++", "Git"]}
+      subtitle="2017 to - at Instituto Superior Técnico, Alameda, Portugal"
+    >
+      Major in <span class="italic">computer graphics</span> and minor in
+      <span class="italic">artificial intelligence</span>.
+    </TimeLineElement>
+    <TimeLineElement
+      title="Bachelor's degree - Computer Science"
+      subtitle="2012 to 2016 at Instituto Superior Técnico, Alameda, Portugal"
+    />
+    <TimeLineElement
+      title="Professional H.S. diploma - Computer Programming"
+      tags={[".NET", "C#", "Java"]}
+      subtitle="2008 to 2011 at Gustave Eiffel Professional School, Amadora, Portugal"
+    >
+      Web services with C# and ASP.NET.<br />
+    </TimeLineElement>
+  </div>
+
+  <div class="mb-4">
+    <div class="text-3xl w-full font-bold">Experience</div>
+  </div>
+
+  <div class="time-line-container mb-6">
+    <TimeLineElement
+      title="Software Developer at Caixa Mágica Software"
+      tags={["Linux", "Python", "C/C++", "SVN"]}
+      subtitle="From 2014 to 2015 at Caixa Mágica Software, Lisbon, Portugal"
+    >
+      Maintenance of the package repository for the Linux distribution, Caixa
+      Mágica. <br />
+       Development of programs for the distribution with Python, Javascript and
+      C/C++.
+    </TimeLineElement>
+    <TimeLineElement
+      title="Web Developer at Randstad Technologies"
+      tags={["C#", "ASP.NET", ".NET", "LINQ", "SQL Server", "Git"]}
+      subtitle="From 2011 to 2012 at Randstad Technologies, Lisbon, Portugal"
+    >
+      Maintenance of websites and development of web services with C# and ASP.
+    </TimeLineElement>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+  <ul class="space-y-2 list-disc list-inside">
+    <li>
+      Solid knowledge of <span class="font-bold badge badge-secondary">C++</span
+      > and <span class="font-bold badge badge-secondary">Python</span>
+    </li>
+    <li>
+      <span class="font-bold badge badge-secondary">Linux</span> daily driver
+      with basic administration abilities
+    </li>
+    <li>
+      Previous experience with Microsoft technologies, such as <span
+        class="font-bold badge badge-secondary">.NET</span
+      > and <span class="font-bold badge badge-secondary">SQL Server</span>
+    </li>
+    <li>
+      Passion for computer graphics: from theory and mathematics to <span
+        class="font-bold badge badge-secondary">OpenGL</span
+      > and <span class="font-bold badge badge-secondary">Vulkan</span> APIs
+    </li>
+  </ul>
+
+  <div class="divider"></div>
+
+  <div
+    class="overflow-x-auto rounded-lg shadow-md border-2 border-neutral-content dark:border-neutral"
+  >
+    <table class="table">
+      <!-- head -->
+      <thead>
+        <tr>
+          <th>Languages</th>
+          <th>Reading</th>
+          <th>Writing</th>
+          <th>Speaking</th>
+          <th>Certification</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Portuguese (Native)</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+        </tr>
+
+        <tr>
+          <td>English</td>
+          <td>C2</td>
+          <td>C2</td>
+          <td>C1</td>
+          <td>-</td>
+        </tr>
+
+        <tr>
+          <td>Japanese</td>
+          <td>C1</td>
+          <td>B1</td>
+          <td>B1</td>
+          <td>JLPT N2</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="mb-6"></div>
+</BaseLayout>
+
+<style>
+  .preview {
+    background-image: repeating-linear-gradient(
+      45deg,
+      hsl(var(--b1)),
+      hsl(var(--b1)) 13px,
+      hsl(var(--b2)) 13px,
+      hsl(var(--b2)) 14px
+    );
+  }
+</style>

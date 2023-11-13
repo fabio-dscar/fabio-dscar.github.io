@@ -1,0 +1,12 @@
+{
+    "title": "Path Tracer",
+    "description": "Photorealistic renderer developed in C++. Supports multithreading. Includes multiple integrators such as path-tracing and bidirectional path-tracing.",
+    "image": "/projects/path-tracer/1.png",
+    "date": "01/12/2020",
+    "githubLink": "https://github.com/fabio-dscar/p3d",
+    "tags": [
+        "C++",
+        "OpenGL"
+    ],
+    "customSlug": "ptracer"
+}

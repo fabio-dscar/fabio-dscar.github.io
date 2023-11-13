@@ -1,0 +1,240 @@
+---
+import { getEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const entry = await getEntry("project", "path-tracer");
+const tags = entry.data.tags;
+//const tag_url = entry.data.url.split("/").slice(0, -1).join("/") + "/tag";
+---
+
+<BaseLayout title="Project" sideBarActiveItemID="projects">
+    <div class="max-w-[1000px]">
+        <div>
+            <div class="text-3xl w-full font-bold mb-2">
+                {"</> "}
+                {entry.data.title}
+            </div>
+            <div class="card-actions mb-2">
+                {
+                    tags &&
+                        tags.map((tag) => (
+                            <a class="badge badge-lg badge-neutral">{tag}</a>
+                        ))
+                }
+            </div>
+        </div>
+        <div class="divider"></div>
+
+        <div class="flex justify-center">
+            <div class="mb-12">
+                <div class="carousel w-full rounded-lg xl:w-[900px] mb-2">
+                    <div id="item1" class="carousel-item w-full">
+                        <img src="/projects/path-tracer/1.png" class="w-full" />
+                    </div>
+                    <div id="item2" class="carousel-item w-full">
+                        <img src="/projects/pbr-model/2.png" class="w-full" />
+                    </div>
+                    <div id="item3" class="carousel-item w-full">
+                        <img src="/projects/pbr-model/3.jpg" class="w-full" />
+                    </div>
+                    <div id="item4" class="carousel-item w-full">
+                        <img src="/projects/pbr-model/1.png" class="w-full" />
+                    </div>
+                    <div id="item5" class="carousel-item w-full">
+                        <img src="/projects/pbr-model/2.png" class="w-full" />
+                    </div>
+                </div>
+
+                <div
+                    class="carousel-thumbs grid grid-cols-5 gap-4 xl:w-[900px]"
+                >
+                    <div>
+                        <img
+                            data-val="1"
+                            class="h-auto max-w-full rounded-lg"
+                            src="/projects/path-tracer/1.png"
+                            alt=""
+                        />
+                    </div>
+                    <div>
+                        <img
+                            data-val="2"
+                            class="h-auto max-w-full rounded-lg"
+                            src="/projects/pbr-model/2.png"
+                            alt=""
+                        />
+                    </div>
+                    <div>
+                        <img
+                            data-val="3"
+                            class="h-auto max-w-full rounded-lg"
+                            src="/projects/pbr-model/3.jpg"
+                            alt=""
+                        />
+                    </div>
+                    <div>
+                        <img
+                            data-val="4"
+                            class="h-auto max-w-full rounded-lg"
+                            src="/projects/pbr-model/1.png"
+                            alt=""
+                        />
+                    </div>
+                    <div>
+                        <img
+                            data-val="5"
+                            class="h-auto max-w-full rounded-lg"
+                            src="/projects/pbr-model/2.png"
+                            alt=""
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between mb-8">
+            <div
+                class="text-base tracking-tight font-sans bg-base-200 rounded-lg mb-2 md:mb-0 text-justify p-5 py-3 w-[100%]"
+            >
+                {entry.data.description}
+            </div>
+            <div class="divider md:divider-horizontal hidden md:flex"></div>
+            <div class="flex flex-row md:flex-col justify-end md:justify-start">
+                <div class="mr-2 md:mb-2 md:mr-0">
+                    <a
+                        class="btn min-w-[135px] lg:min-w-[165px] hover:shadow-md transition ease-in-out h-[45px] min-h-[45px]"
+                        href={entry.data.githubLink}
+                        target="_blank"
+                        class="btn"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="26"
+                            height="26"
+                            viewBox="0 0 24 24"
+                            style="fill: currentColor;transform: ;msFilter:;"
+                            ><path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z"
+                            ></path>
+                        </svg>
+                         Github
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-2xl w-full font-bold mb-2">Implementation Details</div>
+        <div class="">
+            The main reference for the implementation is <a
+                href=""
+                class="font-semibold text-gray-900 underline dark:text-white decoration-red-500"
+                >this paper</a
+            >....
+        </div>
+
+        <div class="grid grid-cols-5 gap-1">
+            <div>
+                <img
+                    class="h-auto max-w-full rounded-lg"
+                    src="/projects/pbr-model/metal0.png"
+                    alt=""
+                />
+            </div>
+            <div>
+                <img
+                    class="h-auto max-w-full rounded-lg"
+                    src="/projects/pbr-model/metal025.png"
+                    alt=""
+                />
+            </div>
+            <div>
+                <img
+                    class="h-auto max-w-full rounded-lg"
+                    src="/projects/pbr-model/metal050.png"
+                    alt=""
+                />
+            </div>
+            <div>
+                <img
+                    class="h-auto max-w-full rounded-lg"
+                    src="/projects/pbr-model/metal075.png"
+                    alt=""
+                />
+            </div>
+            <div>
+                <img
+                    class="h-auto max-w-full rounded-lg"
+                    src="/projects/pbr-model/metal1.png"
+                    alt=""
+                />
+            </div>
+        </div>
+    </div>
+</BaseLayout>
+
+<style>
+    .carousel-thumbs img {
+        transition: filter 0.5s;
+        filter: brightness(60%);
+        cursor: pointer;
+    }
+
+    .carousel-thumbs .normal {
+        filter: brightness(100%);
+    }
+</style>
+
+<script>
+    var currCarousel = 0;
+    const numThumbs = 5;
+
+    function highlightCarouselThumb() {
+        let els = document.querySelectorAll(".carousel-thumbs div img");
+        els.forEach((el) => {
+            if (el.getAttribute("data-val") == String(currCarousel + 1))
+                el.classList.add("normal");
+            else el.classList.remove("normal");
+        });
+    }
+
+    function setCurrCarousel() {
+        let car = document.querySelector(".carousel");
+        currCarousel = Math.floor(car.scrollLeft / car?.clientWidth);
+    }
+
+    function slideNext() {
+        let car = document.querySelector(".carousel");
+        currCarousel = (currCarousel + 1) % numThumbs;
+        car.scrollLeft = currCarousel * car?.clientWidth;
+        highlightCarouselThumb();
+    }
+
+    function carouselSlideShow() {
+        setInterval(function () {
+            slideNext();
+        }, 7000);
+    }
+
+    const onThumbClick = (el) => {
+        let val = el.target.getAttribute("data-val");
+        let car = document.querySelector(".carousel");
+        car.scrollLeft = (val - 1) * car?.clientWidth;
+        currCarousel = val - 1;
+        highlightCarouselThumb();
+    };
+
+    var oldOnload = window.onload;
+    window.onload = () => {
+        if (oldOnload) oldOnload();
+
+        let els = document.querySelectorAll(".carousel-thumbs div");
+        els.forEach((el) => {
+            el.addEventListener("click", onThumbClick);
+        });
+
+        setCurrCarousel();
+        highlightCarouselThumb();
+        carouselSlideShow();
+    };
+</script>

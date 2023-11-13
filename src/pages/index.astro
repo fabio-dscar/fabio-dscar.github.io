@@ -1,0 +1,106 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const projects = (await getCollection("project")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const last_posts = posts.slice(0, 3);
+const last_projs = projects.slice(0, 3);
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">Hey there 👋</div>
+    <div class="text-5xl font-bold">I'm Fábio Carvalho</div>
+    <div class="text-3xl py-3 font-bold">Software Engineer</div>
+    <div class="py-2">
+      <text class="text-lg">
+        I want to develop elegant solutions with <span
+          class="font-bold badge badge-secondary">C++</span
+        >
+         and/or <span class="font-bold badge badge-secondary">Python</span> . I
+        like learning about compilers and writing C++ with a focus on
+        performance.
+        <br />
+         My major is in computer graphics and I have a passion for the field of
+        light transport simulation. I'm interested in renderers and learning
+        about the latest developments in the field.
+      </text>
+    </div>
+    <div class="mt-8">
+      <a
+        class="btn hover:shadow-lg transition ease-in-out hover:scale-[101%]"
+        href="/cv"
+        target="_self">Check my CV here</a
+      >
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">Some projects {"</>"}</div>
+  </div>
+
+  {
+    last_projs.map((post) => (
+      <>
+        <HorizontalCard
+          title={post.data.title}
+          img={post.data.image}
+          desc={post.data.description}
+          url={"/projects/" + post.data.customSlug}
+          target="_self"
+          badge={post.data.badge}
+          tags={post.data.tags}
+        />
+        <div class="divider my-0" />
+      </>
+    ))
+  }
+
+  <!--
+  <HorizontalCard
+    title="Real Time PBR Shading Model"
+    img="/projects/pbr-model/1.jpg"
+    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    url="#"
+    tags={["C++", "OpenGL", "CMake"]}
+    badge="NEW"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Path Tracer"
+    img="/projects/path-tracer/1.png"
+    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    url="#"
+    tags={["C++"]}
+  />
+  <div class="divider my-0"></div>-->
+
+  <!--
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+  </div>
+
+  {
+    last_posts.map((post) => (
+      <>
+        <HorizontalCard
+          title={post.data.title}
+          img={post.data.heroImage}
+          desc={post.data.description}
+          url={"/blog/" + post.slug}
+          target="_self"
+          badge={post.data.badge}
+        />
+        <div class="divider my-0" />
+      </>
+    ))
+  }-->
+</BaseLayout>
