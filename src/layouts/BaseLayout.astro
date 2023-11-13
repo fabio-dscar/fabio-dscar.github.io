@@ -16,11 +16,41 @@ const {
 ---
 
 <!doctype html>
-<html lang="en" data-theme="dracula">
+<html lang="en" data-theme="autumn">
   <head>
     <BaseHead title={title} description={description} image={image} />
   </head>
   <body>
+    <script>
+      const storageKey = "theme-preference";
+
+      const getColorPreference = () => {
+        if (localStorage.getItem(storageKey))
+          return localStorage.getItem(storageKey);
+        else
+          return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dracula"
+            : "autumn";
+      };
+
+      const theme = {
+        value: getColorPreference(),
+      };
+
+      const reflectPreference = () => {
+        document.firstElementChild.setAttribute("data-theme", theme.value);
+
+        document
+          .querySelector("#themeToggle")
+          ?.setAttribute("aria-label", theme.value);
+        document
+          .querySelector("#themeToggle")
+          ?.setAttribute("data-theme", theme.value);
+      };
+
+      // set early so no page flashes / CSS is made aware
+      reflectPreference();
+    </script>
     <div class="bg-base-100 drawer lg:drawer-open">
       <input id="my-drawer" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content bg-base-100">
