@@ -3,5 +3,5 @@
 }
 
 body * {
-    @apply transition-colors duration-[200ms];
+    transition: background-color 200ms linear 0s;
 }
