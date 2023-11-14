@@ -3,5 +3,5 @@
 }
 
 body * {
-    @apply transition-colors duration-[400ms];
+    @apply transition-colors duration-[200ms];
 }
