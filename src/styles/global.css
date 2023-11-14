@@ -3,5 +3,5 @@
 }
 
 body * {
-    transition: background-color 200ms linear 0s;
+    transition: background-color 200ms ease-in-out 0s;
 }
