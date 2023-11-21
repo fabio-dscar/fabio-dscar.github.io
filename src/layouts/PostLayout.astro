@@ -1,6 +1,6 @@
 ---
 import { type BlogSchema } from "../content/config";
-import BaseLayout from "./BaseLayout.astro";
+import BlogLayout from "./BlogLayout.astro";
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
 
@@ -20,9 +20,34 @@ const displayDate = dayjs(pubDate).format("ll");
 import { Image } from "astro:assets";
 ---
 
-<BaseLayout title={title} description={description} image={heroImage}>
-  <main class="md:flex md:justify-center">
-    <article class="prose prose-lg max-w-[750px] prose-img:mx-auto">
+<BlogLayout
+  title={title}
+  description={description}
+  image={heroImage}
+  includeSidebar={false}
+>
+  <main class="md:flex md:justify-center relative">
+    <article
+      class="prose prose-lg max-w-[900px] prose-img:mx-auto text-justify text-[14pt]"
+    >
+      <div class="diff aspect-[16/9]">
+        <div class="diff-item-1">
+          <div
+            class="bg-primary text-primary-content text-9xl font-black grid place-content-center"
+          >
+            DAISY
+          </div>
+        </div>
+        <div class="diff-item-2">
+          <div
+            class="bg-base-200 text-9xl font-black grid place-content-center"
+          >
+            DAISY
+          </div>
+        </div>
+        <div class="diff-resizer"></div>
+      </div>
+
       {
         heroImage && (
           <Image
@@ -62,4 +87,4 @@ import { Image } from "astro:assets";
       <slot />
     </article>
   </main>
-</BaseLayout>
+</BlogLayout>

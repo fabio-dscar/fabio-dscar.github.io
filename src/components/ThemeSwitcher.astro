@@ -1,14 +1,18 @@
 ---
-
+const { iconSize = 30, initPage = true } = Astro.props;
+const sizeClass = initPage ? "oninit" : "onblog";
 ---
 
 <div
     id="themeToggle"
-    class="flex justify-center w-[55px] h-[55px] block rounded-full bg-base-100 mx-2 mb-4 hover:bg-base-300 hover:cursor-pointer shadow"
+    class:list={[
+        "flex justify-center block rounded-full bg-base-100 hover:bg-base-300 hover:cursor-pointer shadow",
+        { oninit: initPage },
+    ]}
 >
-    <button class="theme-toggle-btn">
+    <button class="theme-toggle-btn p-[10px]">
         <svg
-            width="30px"
+            width={iconSize}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
         >
@@ -27,6 +31,15 @@
 </div>
 
 <style>
+    .onblog {
+        width: 40px;
+        height: 40px;
+    }
+    .oninit {
+        width: 55px;
+        height: 55px;
+    }
+
     #theme-toggle-btn {
         border: 0;
         background: none;

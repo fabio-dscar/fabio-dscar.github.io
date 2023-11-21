@@ -1,6 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
+import BlogHeader from "../components/BlogHeader.astro";
 import Footer from "../components/Footer.astro";
 import SideBar from "../components/SideBar.astro";
 
@@ -54,12 +54,10 @@ const {
     <div class="bg-base-100 drawer lg:drawer-open">
       <input id="my-drawer" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content bg-base-100">
-        <Header title={SITE_TITLE} />
-        <div class="md:flex justify-center lg:justify-start">
+        <BlogHeader title={SITE_TITLE} />
+        <div class="md:flex justify-center">
           <!-- md:justify-center -->
-          <main
-            class="p-6 pt-10 lg:max-w-[1200px] max-w-[100vw] md:ml-2 xl:ml-8"
-          >
+          <main class="p-6 pt-10 lg:max-w-[1200px] max-w-[100vw]">
             <!--lg:ml-5 xl:ml-8 -->
             <slot />
           </main>
