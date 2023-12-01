@@ -1,6 +1,6 @@
 {
-    "title": "Real Time PBR Shading Model",
-    "description": "Implementation of the Unreal Engine 4 shading model as described in Epic's papers and presentations. Includes a demo for showcase of the model's parameters and their impact in the lighting computations.",
+    "title": "Real-Time PBR Shading Model",
+    "description": "Real-time rendering implementation of a physically based shading model, inspired by UE4's specification. Includes a simple demo for showcase of the model's parameters and their impact in the lighting computations.",
     "image": "/projects/pbr-model/1.png",
     "date": "01/12/2021",
     "githubLink": "https://github.com/fabio-dscar/pbr-sm",

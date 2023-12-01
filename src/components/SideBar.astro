@@ -16,7 +16,7 @@ const { sideBarActiveItemID } = Astro.props;
         <div
           class="avatar transition ease-in-out hover:scale-[102%] block m-auto"
         >
-          <div class="w-[8.5rem]">
+          <div class="w-[7.5rem] lg:w-[8.5rem]">
             <Image
               class="mask mask-circle"
               format="webp"
@@ -32,6 +32,8 @@ const { sideBarActiveItemID } = Astro.props;
     <SideBarFooter />
     <SideBarMenu sideBarActiveItemID={sideBarActiveItemID} />
 
-    <div class="mx-2 mb-4"><ThemeSwitcher iconSize={30} /></div>
+    <div class="mx-2 mb-4 hidden lg:flex">
+      <ThemeSwitcher iconSize={30} initPage={true} />
+    </div>
   </aside>
 </div>

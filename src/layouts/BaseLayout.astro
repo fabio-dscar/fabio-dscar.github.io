@@ -20,8 +20,8 @@ const {
   <head>
     <BaseHead title={title} description={description} image={image} />
   </head>
-  <body>
-    <script>
+  <body class="">
+    <script is:inline>
       const storageKey = "theme-preference";
 
       const getColorPreference = () => {
@@ -37,19 +37,61 @@ const {
         value: getColorPreference(),
       };
 
+      const onThemeClick = () => {
+        // flip current value
+        theme.value = theme.value === "autumn" ? "dracula" : "autumn";
+        setPreference();
+      };
+
+      const setPreference = () => {
+        localStorage.setItem(storageKey, theme.value);
+        reflectPreference();
+      };
+
       const reflectPreference = () => {
         document.firstElementChild.setAttribute("data-theme", theme.value);
 
         document
-          .querySelector("#themeToggle")
-          ?.setAttribute("aria-label", theme.value);
+          .querySelectorAll(".themeToggle")
+          .forEach((e) => e.setAttribute("aria-label", theme.value));
+
         document
-          .querySelector("#themeToggle")
-          ?.setAttribute("data-theme", theme.value);
+          .querySelectorAll(".themeToggle")
+          .forEach((e) => e.setAttribute("data-theme", theme.value));
+
+        /*document
+          .querySelector(".themeToggle")
+          ?.setAttribute("data-theme", theme.value);*/
       };
 
       // set early so no page flashes / CSS is made aware
       reflectPreference();
+
+      var olderOnLoad = window.onload;
+      window.onload = () => {
+        if (olderOnLoad) olderOnLoad();
+        // set on load so screen readers can see latest value on the button
+        reflectPreference();
+
+        // now this script can find and listen for clicks on the control
+        document
+          .querySelectorAll(".themeToggle")
+          .forEach((e) => e.addEventListener("click", onThemeClick));
+        /*document
+          .querySelector(".themeToggle")
+          .addEventListener("click", onThemeClick);*/
+
+        //document.querySelector("body")?.classList.remove("invisible");
+        //document.querySelector("aside")?.classList.remove("invisible");
+      };
+
+      // sync with system changes
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", ({ matches: isDark }) => {
+          theme.value = isDark ? "dracula" : "autumn";
+          setPreference();
+        });
     </script>
     <div class="bg-base-100 drawer lg:drawer-open">
       <input id="my-drawer" type="checkbox" class="drawer-toggle" />

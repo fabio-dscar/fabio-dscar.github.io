@@ -4,10 +4,10 @@ const sizeClass = initPage ? "oninit" : "onblog";
 ---
 
 <div
-    id="themeToggle"
     class:list={[
-        "flex justify-center block rounded-full bg-base-100 hover:bg-base-300 hover:cursor-pointer shadow",
+        "themeToggle flex justify-center block rounded-full bg-base-100 hover:bg-base-300 hover:cursor-pointer shadow",
         { oninit: initPage },
+        { onblog: !initPage },
     ]}
 >
     <button class="theme-toggle-btn p-[10px]">
@@ -32,20 +32,20 @@ const sizeClass = initPage ? "oninit" : "onblog";
 
 <style>
     .onblog {
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
     }
     .oninit {
         width: 55px;
         height: 55px;
     }
 
-    #theme-toggle-btn {
+    .theme-toggle-btn {
         border: 0;
         background: none;
     }
 
-    #themeToggle svg {
+    .themeToggle svg {
         width: auto;
     }
 
@@ -76,6 +76,13 @@ const sizeClass = initPage ? "oninit" : "onblog";
 </style>
 
 <script is:inline>
+    document
+        .querySelectorAll(".themeToggle")
+        .forEach((e) => e.setAttribute("data-theme", theme.value));
+</script>
+
+<!--
+    <script is:inline>
     const storageKey = "theme-preference";
 
     const getColorPreference = () => {
@@ -106,10 +113,10 @@ const sizeClass = initPage ? "oninit" : "onblog";
         document.firstElementChild.setAttribute("data-theme", theme.value);
 
         document
-            .querySelector("#themeToggle")
+            .querySelector(".themeToggle")
             ?.setAttribute("aria-label", theme.value);
         document
-            .querySelector("#themeToggle")
+            .querySelector(".themeToggle")
             ?.setAttribute("data-theme", theme.value);
     };
 
@@ -122,7 +129,7 @@ const sizeClass = initPage ? "oninit" : "onblog";
 
         // now this script can find and listen for clicks on the control
         document
-            .querySelector("#themeToggle")
+            .querySelector(".themeToggle")
             .addEventListener("click", onThemeClick);
     };
 
@@ -134,3 +141,4 @@ const sizeClass = initPage ? "oninit" : "onblog";
             setPreference();
         });
 </script>
+-->
