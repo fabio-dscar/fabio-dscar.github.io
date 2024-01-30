@@ -4,6 +4,8 @@ import { Image } from "astro:assets";
 import SideBarMenu from "./SideBarMenu.astro";
 import ThemeSwitcher from "./ThemeSwitcher.astro";
 const { sideBarActiveItemID } = Astro.props;
+
+import ProfileImage from "../../public/profile.png";
 ---
 
 <div class="drawer-side z-40">
@@ -22,7 +24,7 @@ const { sideBarActiveItemID } = Astro.props;
               format="webp"
               width={300}
               height={300}
-              src="/profile.png"
+              src={ProfileImage}
               alt="Profile image"
               loading="eager"
             />

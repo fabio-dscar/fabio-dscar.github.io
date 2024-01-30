@@ -1,10 +1,24 @@
 ---
 import { getEntry } from "astro:content";
+import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const entry = await getEntry("project", "pbr");
 const tags = entry.data.tags;
 //const tag_url = entry.data.url.split("/").slice(0, -1).join("/") + "/tag";
+
+import VideoThumb from "../../assets/projects/pbr-model/video-thumb.png";
+import CarouselImage1 from "../../assets/projects/pbr-model/1.png";
+import CarouselImage2 from "../../assets/projects/pbr-model/2.png";
+import CarouselImage3 from "../../assets/projects/pbr-model/3.png";
+import CarouselImage4 from "../../assets/projects/pbr-model/4.png";
+
+import GuiImage from "../../assets/projects/pbr-model/gui.png";
+import Metal0 from "../../assets/projects/pbr-model/metal0.png";
+import Metal025 from "../../assets/projects/pbr-model/metal025.png";
+import Metal050 from "../../assets/projects/pbr-model/metal050.png";
+import Metal075 from "../../assets/projects/pbr-model/metal075.png";
+import Metal1 from "../../assets/projects/pbr-model/metal1.png";
 ---
 
 <BaseLayout title="Project" sideBarActiveItemID="projects">
@@ -37,16 +51,36 @@ const tags = entry.data.tags;
                         </video>
                     </div>
                     <div id="item2" class="carousel-item w-full">
-                        <img src="/projects/pbr-model/1.png" class="w-full" />
+                        <Image
+                            src={CarouselImage1}
+                            class="w-full"
+                            alt="Carousel Image 1"
+                            loading="eager"
+                        />
                     </div>
                     <div id="item3" class="carousel-item w-full">
-                        <img src="/projects/pbr-model/2.png" class="w-full" />
+                        <Image
+                            src={CarouselImage2}
+                            class="w-full"
+                            alt="Carousel Image 2"
+                            loading="eager"
+                        />
                     </div>
                     <div id="item4" class="carousel-item w-full">
-                        <img src="/projects/pbr-model/3.png" class="w-full" />
+                        <Image
+                            src={CarouselImage3}
+                            class="w-full"
+                            alt="Carousel Image 3"
+                            loading="eager"
+                        />
                     </div>
                     <div id="item5" class="carousel-item w-full">
-                        <img src="/projects/pbr-model/4.png" class="w-full" />
+                        <Image
+                            src={CarouselImage4}
+                            class="w-full"
+                            alt="Carousel Image 4"
+                            loading="eager"
+                        />
                     </div>
                 </div>
 
@@ -54,43 +88,48 @@ const tags = entry.data.tags;
                     class="carousel-thumbs grid grid-cols-5 gap-4 xl:w-[900px]"
                 >
                     <div>
-                        <img
+                        <Image
+                            src={VideoThumb}
                             data-val="1"
                             class="h-auto max-w-full rounded-lg"
-                            src="/projects/pbr-model/video-thumb.png"
-                            alt=""
+                            alt="Video Thumbnail"
+                            loading="eager"
                         />
                     </div>
                     <div>
-                        <img
+                        <Image
+                            src={CarouselImage1}
                             data-val="2"
                             class="h-auto max-w-full rounded-lg"
-                            src="/projects/pbr-model/1.png"
-                            alt=""
+                            alt="Carousel Thumbnail 1"
+                            loading="eager"
                         />
                     </div>
                     <div>
-                        <img
+                        <Image
+                            src={CarouselImage2}
                             data-val="3"
                             class="h-auto max-w-full rounded-lg"
-                            src="/projects/pbr-model/2.png"
-                            alt=""
+                            alt="Carousel Thumbnail 2"
+                            loading="eager"
                         />
                     </div>
                     <div>
-                        <img
+                        <Image
+                            src={CarouselImage3}
                             data-val="4"
                             class="h-auto max-w-full rounded-lg"
-                            src="/projects/pbr-model/3.png"
-                            alt=""
+                            alt="Carousel Thumbnail 3"
+                            loading="eager"
                         />
                     </div>
                     <div>
-                        <img
+                        <Image
+                            src={CarouselImage4}
                             data-val="5"
                             class="h-auto max-w-full rounded-lg"
-                            src="/projects/pbr-model/4.png"
-                            alt=""
+                            alt="Carousel Thumbnail 4"
+                            loading="eager"
                         />
                     </div>
                 </div>
@@ -179,38 +218,38 @@ const tags = entry.data.tags;
                     </li>
                     <div class="grid grid-cols-5 gap-1">
                         <div>
-                            <img
+                            <Image
                                 class="h-auto max-w-full rounded-lg"
-                                src="/projects/pbr-model/metal0.png"
-                                alt=""
+                                src={Metal0}
+                                alt="Metal = 0"
                             />
                         </div>
                         <div>
-                            <img
+                            <Image
                                 class="h-auto max-w-full rounded-lg"
-                                src="/projects/pbr-model/metal025.png"
-                                alt=""
+                                src={Metal025}
+                                alt="Metal = 0.25"
                             />
                         </div>
                         <div>
-                            <img
+                            <Image
                                 class="h-auto max-w-full rounded-lg"
-                                src="/projects/pbr-model/metal050.png"
-                                alt=""
+                                src={Metal050}
+                                alt="Metal = 0.50"
                             />
                         </div>
                         <div>
-                            <img
+                            <Image
                                 class="h-auto max-w-full rounded-lg"
-                                src="/projects/pbr-model/metal075.png"
-                                alt=""
+                                src={Metal075}
+                                alt="Metal = 0.75"
                             />
                         </div>
                         <div>
-                            <img
+                            <Image
                                 class="h-auto max-w-full rounded-lg"
-                                src="/projects/pbr-model/metal1.png"
-                                alt=""
+                                src={Metal1}
+                                alt="Metal = 1"
                             />
                         </div>
                     </div>
@@ -225,21 +264,13 @@ const tags = entry.data.tags;
                         to change parameters in real time.
                     </li>
 
-                    <div class="grid grid-cols-2 gap-1">
-                        <div>
-                            <img
-                                class="h-auto max-w-full rounded-lg"
-                                src="/projects/pbr-model/tone.png"
-                                alt=""
-                            />
-                        </div>
-                        <div>
-                            <img
-                                class="h-auto max-w-full rounded-lg"
-                                src="/projects/pbr-model/obj.png"
-                                alt=""
-                            />
-                        </div>
+                    <div>
+                        <Image
+                            src={GuiImage}
+                            format="png"
+                            class="h-auto max-w-full rounded-lg"
+                            alt="GUI Image"
+                        />
                     </div>
                 </ul>
             </div>
