@@ -28,5 +28,5 @@ const astroExpressiveCodeOptions = {
 // https://astro.build/config
 export default defineConfig({
   site: 'https://fabio-dscar.github.io',
-  integrations: [expressiveCode(astroExpressiveCodeOptions), mdx(), sitemap(), tailwind()]
+  integrations: [expressiveCode(astroExpressiveCodeOptions), mdx(), sitemap(), tailwind()],
 });
