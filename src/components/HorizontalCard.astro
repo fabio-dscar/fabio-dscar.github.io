@@ -4,10 +4,11 @@ import { Image } from "astro:assets";
 
 console.log(url);
 
-const tag_url =
-  url && url.includes("github")
+const tag_url = url
+  ? url.includes("github")
     ? "/projects/tag"
-    : url.split("/").slice(0, -1).join("/") + "/tag";
+    : url.split("/").slice(0, -1).join("/") + "/tag"
+  : "project/tag";
 ---
 
 <div
