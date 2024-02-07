@@ -11,5 +11,6 @@
         "GLSL",
         "CMake"
     ],
-    "customSlug": "pbrsm"
+    "customSlug": "pbrsm",
+    "hardcode_url": "/projects/pbrsm"
 }

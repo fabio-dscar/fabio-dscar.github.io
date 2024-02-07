@@ -8,5 +8,6 @@
         "C++",
         "OpenGL"
     ],
-    "customSlug": "ptracer"
+    "customSlug": "ptracer",
+    "hardcode_url": "https://github.com/fabio-dscar/p3d"
 }

@@ -16,9 +16,16 @@ import CarouselImage4 from "../../assets/projects/pbr-model/4.png";
 import GuiImage from "../../assets/projects/pbr-model/gui.png";
 import Metal0 from "../../assets/projects/pbr-model/metal0.png";
 import Metal025 from "../../assets/projects/pbr-model/metal025.png";
+import Metal033 from "../../assets/projects/pbr-model/metal033.png";
 import Metal050 from "../../assets/projects/pbr-model/metal050.png";
+import Metal066 from "../../assets/projects/pbr-model/metal066.png";
 import Metal075 from "../../assets/projects/pbr-model/metal075.png";
 import Metal1 from "../../assets/projects/pbr-model/metal1.png";
+import MetalRough020 from "../../assets/projects/pbr-model/metal_rough020.png";
+import MetalRough032 from "../../assets/projects/pbr-model/metal_rough032.png";
+import MetalRough078 from "../../assets/projects/pbr-model/metal_rough078.png";
+import Clearcoat039 from "../../assets/projects/pbr-model/clearcoat039.png";
+import Clearcoat1 from "../../assets/projects/pbr-model/clearcoat1.png";
 ---
 
 <BaseLayout title="Project" sideBarActiveItemID="projects">
@@ -165,7 +172,7 @@ import Metal1 from "../../assets/projects/pbr-model/metal1.png";
                         Github
                     </a>
                 </div>
-                <div class="">
+                <!-- <div class="">
                     <a
                         class="btn uppercase min-w-[135px] lg:min-w-[165px] hover:shadow-md transition ease-in-out h-[45px] min-h-[45px]"
                         href="https://www.github.com"
@@ -192,7 +199,7 @@ import Metal1 from "../../assets/projects/pbr-model/metal1.png";
                         >
                         Report
                     </a>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -210,53 +217,82 @@ import Metal1 from "../../assets/projects/pbr-model/metal1.png";
             </div>
 
             <div class="flex ml-2">
-                <ul class="space-y-3 list-disc list-inside">
+                <ul class="space-y-6 list-disc list-inside">
                     <li>
                         <a class="font-bold">PBR Materials</a>: The materials
                         use physically based parameters and reflection functions
-                        to represent lighting more accurately.
+                        to represent lighting more accurately and provide a more
+                        intuitive setup. Supports metal-roughness workflow and
+                        clearcoat.
                     </li>
-                    <div class="grid grid-cols-5 gap-1">
-                        <div>
-                            <Image
-                                class="h-auto max-w-full rounded-lg"
-                                src={Metal0}
-                                alt="Metal = 0"
-                            />
-                        </div>
-                        <div>
-                            <Image
-                                class="h-auto max-w-full rounded-lg"
-                                src={Metal025}
-                                alt="Metal = 0.25"
-                            />
-                        </div>
-                        <div>
-                            <Image
-                                class="h-auto max-w-full rounded-lg"
-                                src={Metal050}
-                                alt="Metal = 0.50"
-                            />
-                        </div>
-                        <div>
-                            <Image
-                                class="h-auto max-w-full rounded-lg"
-                                src={Metal075}
-                                alt="Metal = 0.75"
-                            />
-                        </div>
-                        <div>
-                            <Image
-                                class="h-auto max-w-full rounded-lg"
-                                src={Metal1}
-                                alt="Metal = 1"
-                            />
+                    <div class="flex justify-center">
+                        <div class="grid grid-cols-4 gap-1 max-w-[900px]">
+                            <div>
+                                <Image
+                                    class="h-auto max-w-full rounded-lg"
+                                    src={Metal0}
+                                    alt="Metal = 0"
+                                />
+                            </div>
+                            <div>
+                                <Image
+                                    class="h-auto max-w-full rounded-lg"
+                                    src={Metal033}
+                                    alt="Metal = 0.33"
+                                />
+                            </div>
+                            <div>
+                                <Image
+                                    class="h-auto max-w-full rounded-lg"
+                                    src={Metal066}
+                                    alt="Metal = 0.66"
+                                />
+                            </div>
+                            <div>
+                                <Image
+                                    class="h-auto max-w-full rounded-lg"
+                                    src={Metal1}
+                                    alt="Metal = 1"
+                                />
+                            </div>
+                            <div>
+                                <Image
+                                    class="h-auto max-w-full rounded-lg"
+                                    src={MetalRough020}
+                                    alt="Rough metal"
+                                />
+                            </div>
+                            <div>
+                                <Image
+                                    class="h-auto max-w-full rounded-lg"
+                                    src={MetalRough032}
+                                    alt="Rough metal"
+                                />
+                            </div>
+                            <div>
+                                <Image
+                                    class="h-auto max-w-full rounded-lg"
+                                    src={MetalRough078}
+                                    alt="Rough metal"
+                                />
+                            </div>
+                            <div>
+                                <Image
+                                    class="h-auto max-w-full rounded-lg"
+                                    src={Clearcoat1}
+                                    alt="Clearcoat = 1 on a rough metal"
+                                />
+                            </div>
                         </div>
                     </div>
                     <li>
                         <a class="font-bold">Environment Lighting</a>: The
                         environment's diffuse and specular contributions are
-                        precomputed to allow for efficient lookup in real-time.
+                        precomputed using <a
+                            class="underline"
+                            href="https://github.com/fabio-dscar/iblenv-tool"
+                            >custom tool</a
+                        > to allow for efficient lookup in real-time.
                     </li>
 
                     <li>
