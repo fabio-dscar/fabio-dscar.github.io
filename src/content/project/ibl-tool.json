@@ -1,0 +1,16 @@
+{
+    "title": "IBL Precomputation Tool",
+    "description": "Tool for precomputation of BRDF and lighting integrals associated with environment lighting, for efficient use in real time. Also converts between all kinds of cubemap image layouts.",
+    "image": "/projects/ibl-tool/proj_thumb.webp",
+    "date": "01/10/2021",
+    "githubLink": "https://github.com/fabio-dscar/iblenv-tool",
+    "badge": "NEW",
+    "tags": [
+        "C++",
+        "OpenGL",
+        "GLSL",
+        "CMake"
+    ],
+    "customSlug": "ibltool",
+    "hardcode_url": "https://github.com/fabio-dscar/iblenv-tool"
+}
