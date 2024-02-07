@@ -17,6 +17,7 @@ const projectSchema = z.object({
     image: z.string(),
     date: z.coerce.date(),
     customSlug: z.string().optional(),
+    hardcode_url: z.string().optional(),
     link: z.string().optional(),
     otherLink: z.string().optional(),
     githubLink: z.string().optional(),
