@@ -3,6 +3,7 @@ import { type BlogSchema } from "../content/config";
 import BlogLayout from "./BlogLayout.astro";
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
+import KatexFormula from "@components/KatexFormula.astro";
 
 export interface Props extends BlogSchema {}
 
@@ -28,7 +29,7 @@ import { Image } from "astro:assets";
 >
   <main class="md:flex md:justify-center relative">
     <article
-      class="prose prose-lg max-w-[900px] prose-img:mx-auto text-justify text-[14pt]"
+      class="prose prose-lg max-w-[800px] prose-img:mx-auto text-justify text-[14pt]"
     >
       <div class="diff aspect-[16/9]">
         <div class="diff-item-1">
@@ -47,7 +48,9 @@ import { Image } from "astro:assets";
         </div>
         <div class="diff-resizer"></div>
       </div>
-
+      <!--<div class="toc-par">
+        <div class="w-[200px] h-[100px] toc"></div>
+      </div>-->
       {
         heroImage && (
           <Image
@@ -63,13 +66,13 @@ import { Image } from "astro:assets";
       <h1 class="title my-2 text-4xl font-bold">{title}</h1>
       {pubDate && <time>{displayDate}</time>}
       <br />
-      {badge && <div class="badge badge-secondary my-1">{badge}</div>}
+      {badge && <div class="badge badge-md badge-secondary my-1">{badge}</div>}
       {
         tags &&
           tags.map((tag) => (
             <a
               href={`/blog/tag/${tag}`}
-              class="badge badge-outline ml-2 no-underline"
+              class="badge badge-md badge-neutral ml-2 no-underline"
             >
               {tag}
             </a>
@@ -84,7 +87,58 @@ import { Image } from "astro:assets";
         )
       }
       <div class="divider my-2"></div>
+      <KatexFormula
+        border
+        shadowed
+        caption="The rendering equation"
+        formula="L_o = L_e + \\int_{\\Omega} L_i \\cdot f_r \\cdot \\cos{\\theta} \\cdot d\\omega"
+      />
       <slot />
     </article>
   </main>
 </BlogLayout>
+
+<style>
+  .toc {
+    position: sticky;
+    top: 100px;
+    overflow: hidden;
+    height: 50vh;
+  }
+
+  .toc-par {
+    position: absolute;
+    right: -230px;
+    height: 100%;
+    top: 0;
+  }
+
+  .toc-list li {
+    margin: 0 !important;
+  }
+
+  .toc-list-item {
+    margin: 0 !important;
+  }
+  .toc-link {
+    margin: 0 !important;
+  }
+  .toc-link::before {
+    margin: 0 !important;
+  }
+</style>
+
+<script>
+  /*window.onload = function () {
+    tocbot.init({
+      // Where to render the table of contents.
+      tocSelector: ".toc",
+      // Where to grab the headings to build the table of contents.
+      contentSelector: ".prose",
+      // Which headings to grab inside of the contentSelector element.
+      headingSelector: "h1, h2, h3",
+      // For headings inside relative or absolute positioned containers within content.
+      hasInnerContainers: true,
+    });
+  };*/
+</script>

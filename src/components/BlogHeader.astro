@@ -1,16 +1,32 @@
 ---
 import ThemeSwitcher from "./ThemeSwitcher.astro";
+import katex from "katex";
+const html = katex.renderToString(`\\displaystyle \\int `, {
+    throwOnError: false,
+});
+const html2 = katex.renderToString(`d\\omega `, {
+    throwOnError: false,
+});
+import "katex/dist/katex.min.css";
 ---
 
+<!-- bg-base-100 -->
 <div
-    class="sticky top-0 z-30 flex h-14 w-full justify-center bg-opacity-90 backdrop-blur transition-all duration-100 bg-base-100 text-base-content shadow-secondary shadow-sm"
+    class="sticky top-0 z-30 flex h-14 w-full justify-center bg-opacity-90 backdrop-blur transition-all duration-100 text-base-content shadow-secondary shadow-sm"
 >
     <div class="navbar min-h-0 max-w-[1300px]">
         <div class="navbar-start flex content-center justify-items pl-2">
             <ThemeSwitcher iconSize={26} initPage={false} />
         </div>
         <div class="navbar-center">
-            <a class="text-lg" href="/blog">CG Blog</a>
+            <a
+                class="text-lg flex align-items justify-content items-center"
+                href="/blog"
+                ><span class="mr-2 text-[11pt]" set:html={html} /><img
+                    style="height:45px;"
+                    src="https://litter.catbox.moe/cizh0r.png"
+                /><span class="ml-2" set:html={html2} /></a
+            >
         </div>
         <div class="navbar-end pr-2">
             <a class="btn btn-ghost normal-case text-base" href="/blog"

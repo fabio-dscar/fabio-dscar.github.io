@@ -29,5 +29,142 @@ const { Content } = await entry.render();
   badge={post.badge}
   tags={post.tags}
 >
+  <div class="back-to-top hidden min-[1150px]:block">
+    <button
+      class="scrollTo border-2 bg-base-100 text-secondary border-secondary shadow-[2px_2px] shadow-secondary"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M4.5 10.5L12 3m0 0l7.5 7.5M12 3v18"></path>
+      </svg>
+    </button>
+  </div>
+
   <Content />
 </PostLayout>
+
+<script>
+  var scrollToTopBtn = document.querySelector(".scrollTo");
+  var rootElement = document.documentElement;
+
+  function handleScroll() {
+    // Do something on scroll
+    var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+    if (rootElement.scrollTop / scrollTotal > 0.2) {
+      // Show button
+      scrollToTopBtn.classList.add("showBtn");
+    } else {
+      // Hide button
+      scrollToTopBtn.classList.remove("showBtn");
+    }
+  }
+
+  function scrollToTop() {
+    // Scroll to top logic
+    rootElement.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+
+  scrollToTopBtn.addEventListener("click", scrollToTop);
+  document.addEventListener("scroll", handleScroll);
+</script>
+
+<style>
+  .back-to-top {
+    position: absolute;
+    top: 120vh;
+    bottom: 0;
+    /*right: -100px;*/
+    right: -90px;
+  }
+
+  .scrollTo {
+    padding: 0.3rem;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 90vh;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+  }
+
+  .shadow-drop-style {
+    background-color: rgb(39, 41, 53);
+    color: white;
+
+    border: 2px solid #fff;
+    box-shadow: 2px 2px #ffffff;
+    border-radius: 8px;
+  }
+
+  .accordion p {
+    margin: 0;
+  }
+
+  article {
+    position: relative;
+  }
+
+  .caption {
+  }
+
+  .scrollToTopBtn {
+    background-color: rgb(39, 41, 53);
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 48px;
+    width: 48px;
+
+    /* place it at the bottom right corner */
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    /* keep it at the top of everything else */
+    z-index: 100;
+    /* hide with opacity */
+    opacity: 0;
+    /* also add a translate effect */
+    transform: translateY(100px);
+    /* and a transition */
+    transition: all 0.5s ease;
+
+    border: 2px solid #fff;
+    box-shadow: 2px 2px #ffffff;
+    border-radius: 8px;
+
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .showBtn {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
