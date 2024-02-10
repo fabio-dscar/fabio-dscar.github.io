@@ -1,0 +1,51 @@
+---
+import katex from "katex";
+import "katex/dist/katex.min.css";
+
+const {
+    formula = "",
+    caption,
+    dashed = false,
+    shadowed = false,
+    border = false,
+} = Astro.props;
+const latex_html = katex.renderToString(formula, {
+    throwOnError: true,
+    displayMode: true,
+    leqno: true,
+});
+
+let border_style = dashed ? "border-dashed" : "border-solid";
+let shadow_style = shadowed ? "shadow-[2px_2px] shadow-secondary" : "";
+let margin_bottom = caption ? "" : "mb-4";
+
+let bordered = "border-2";
+if (!border) {
+    border_style = "";
+    bordered = "border-0";
+}
+---
+
+<!-- border-neutral-400  border-dashed  py-4-->
+<div class="flex flex-col justify-items-center">
+    <div
+        class:list={[
+            "text-center text-[20px] rounded-lg border-secondary",
+            border_style,
+            shadow_style,
+            margin_bottom,
+            bordered,
+            { classNames: true },
+        ]}
+    >
+        <span set:html={latex_html} class="" />
+    </div>
+
+    {
+        caption && (
+            <div class="caption italic text-base text-center mt-2">
+                {caption}
+            </div>
+        )
+    }
+</div>
